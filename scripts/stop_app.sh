@@ -1,4 +1,4 @@
 #!/bin/bash
 
 PID=$(ps -C node -o pid=)
-kill "$PID"
+kill -9 "$PID"
