@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yarn install
+cd /app && yarn install
