@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd /app && NODE_ENV=production yarn start > /dev/null 2> /dev/null < /dev/null &
+cd /app && NODE_ENV=production yarn start > /var/log/app/info.log 2> /var/log/app/error.log&
