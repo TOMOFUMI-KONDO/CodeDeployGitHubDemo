@@ -1,4 +1,4 @@
 #!/bin/bash
 
-PID=$(pgrep -f "/usr/bin/node .")
+PID=$(pgrep -n "node")
 if [[ $PID != "" ]] ; then kill -9 "$PID" ; fi
