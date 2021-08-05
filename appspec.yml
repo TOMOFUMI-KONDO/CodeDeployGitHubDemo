@@ -83,29 +83,26 @@ hooks:
 #      runas:
 # During the BeforeInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
-#  BeforeInstall:
-#    - location:
-#      timeout:
-#      runas:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+    - location: scripts/build_app.sh
+      timeout: 300
+      runas: root
 # During the AfterInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
   AfterInstall:
-    - location: scripts/install_dependencies
+    - location: scripts/mod_permission.sh
       timeout: 300
       runas: root
-    - location: scripts/build_app
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: ec2-user
 # During the ApplicationStart deployment lifecycle event, run the commands
 #   in the script specified in "location".
-#  ApplicationStart:
-#    - location: scripts/stop_server
-#      timeout: 300
-#      runas: root
-# During the ValidateService deployment lifecycle event, run the commands 
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: ec2-user
+# During the ValidateService deployment lifecycle event, run the commands
 #   in the script specified in "location".
 #  ValidateService:
 #    - location:     
