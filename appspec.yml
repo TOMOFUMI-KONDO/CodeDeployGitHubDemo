@@ -77,10 +77,10 @@ hooks:
 # During the ApplicationStop deployment lifecycle event, run the commands
 #   in the script specified in "location" starting from the root of the
 #   revision's file bundle.
-#  ApplicationStop:
-#    - location:
-#      timeout:
-#      runas:
+  ApplicationStop:
+    - location: scripts/stop_app.sh
+      timeout: 300
+      runas: ec2-user
 # During the BeforeInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
 #  BeforeInstall:
@@ -102,7 +102,7 @@ hooks:
 # During the ApplicationStart deployment lifecycle event, run the commands
 #   in the script specified in "location".
   ApplicationStart:
-    - location: scripts/start_server.sh
+    - location: scripts/start_app.sh
       timeout: 300
       runas: ec2-user
 # During the ValidateService deployment lifecycle event, run the commands
