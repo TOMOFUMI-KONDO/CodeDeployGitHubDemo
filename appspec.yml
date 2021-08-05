@@ -25,9 +25,9 @@ os: linux
 files:
   - source: /src
     destination: /app/
-  - source: package.json
+  - source: /package.json
     destination: /app/
-  - source: yarn.lock
+  - source: /yarn.lock
     destination: /app/
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
@@ -91,9 +91,12 @@ hooks:
     - location: scripts/install_dependencies
       timeout: 300
       runas: root
-    - location: scripts/start_server
+    - location: scripts/build_app
       timeout: 300
       runas: root
+    - location: scripts/start_server
+      timeout: 300
+      runas: ec2-user
 # During the AfterInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
 #  AfterInstall:
