@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.get("/", (req, res) => res.send("blue"))
+app.get("/", (req, res) => res.send("green"))
 
 app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
     console.error(err)
