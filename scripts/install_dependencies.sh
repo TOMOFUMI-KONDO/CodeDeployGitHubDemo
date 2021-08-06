@@ -1,3 +1,4 @@
 #!/bin/bash
 
-cd /app && yarn install
+cd /app || exit 1
+yarn install

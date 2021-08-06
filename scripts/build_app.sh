@@ -1,3 +1,4 @@
 #!/bin/bash
 
-cd /app && yarn tsc
+cd /app || exit 1
+yarn tsc
